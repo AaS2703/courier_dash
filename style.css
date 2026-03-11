@@ -1,0 +1,194 @@
+:root {
+    --bg: #0f172a;
+    /* deep night */
+    --road: #e5e7eb;
+    /* road */
+    --block: #374151;
+    /* blocked */
+    --hub: #2563eb;
+    /* start hub */
+    --courier: #14b8a6;
+    /* rider */
+    --parcel: #f59e0b;
+    /* deliveries */
+    --done: #22c55e;
+    /* delivered */
+    --pin: #ef4444;
+    /* destination pin */
+    --path: #22d3ee;
+}
+
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: radial-gradient(1200px 600px at 50% -10%, #1f2933, var(--bg));
+    color: #f8fafc;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 16px;
+    letter-spacing: 0.5px;
+}
+
+.tagline {
+    opacity: .9;
+}
+
+#stats span {
+    margin: 0 10px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(7, 52px);
+    gap: 8px;
+    justify-content: center;
+    margin: 18px auto 10px;
+}
+
+.cell {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .15);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.road {
+    background: linear-gradient(180deg, #f3f4f6, var(--road));
+    color: #111827;
+}
+
+.block {
+    background: linear-gradient(180deg, #4b5563, var(--block));
+}
+
+.hub {
+    background: linear-gradient(180deg, #3b82f6, var(--hub));
+}
+
+.player {
+    background: linear-gradient(180deg, #2dd4bf, var(--courier));
+    color: #022c22;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .15), 0 0 20px rgba(45, 212, 191, 0.5);
+}
+
+.delivery {
+    background: linear-gradient(180deg, #fbbf24, var(--parcel));
+    color: #3b1f00;
+}
+
+.done {
+    background: linear-gradient(180deg, #34d399, var(--done));
+    color: #022c22;
+}
+
+.goal {
+    background: linear-gradient(180deg, #fb7185, var(--pin));
+}
+
+.cell.bump {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.path {
+    outline: 3px solid var(--path);
+    outline-offset: -3px;
+    animation: pathGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes pathGlow {
+    0% {
+        outline-color: var(--path);
+        outline-offset: -3px;
+        opacity: 0.6;
+        box-shadow: 0 0 0 rgba(34, 211, 238, 0);
+    }
+
+    50% {
+        outline-color: #06b6d4;
+        outline-offset: -1px;
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+    }
+
+    100% {
+        outline-color: var(--path);
+        outline-offset: -3px;
+        opacity: 0.6;
+        box-shadow: 0 0 0 rgba(34, 211, 238, 0);
+    }
+}
+
+.controls button {
+    margin: 6px;
+    padding: 10px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+    background: #0b1220;
+    color: #e5e7eb;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .2);
+    background: linear-gradient(180deg, #1e293b, #0b1220);
+}
+
+/* Overlay modal used for level complete / end-state */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay-content {
+    background: rgba(15, 23, 42, 0.95);
+    padding: 24px 32px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    max-width: 320px;
+    text-align: center;
+}
+
+.overlay-content h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
+.overlay-content p {
+    margin: 0 0 18px;
+    opacity: 0.9;
+}
+
+.overlay-content button {
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.overlay-content button:hover {
+    background: #1d4ed8;
+}

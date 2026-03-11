@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Courier Dash</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Courier Dash</h1>
+    <p class="tagline">Deliver all packages with minimum steps 🚴‍♂️</p>
+
+    <div id="stats">
+        <span>Level: <b id="level">1</b></span>
+        <span>Your Steps: <b id="userSteps">0</b></span>
+        <span>Total Steps: <b id="totalSteps">0</b></span>
+        <span>AI Optimal Steps (est.): <b id="aiSteps">-</b></span>
+        <span>Distance to Next Delivery: <b id="distance">-</b></span>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <h2 id="overlay-title"></h2>
+            <p id="overlay-text"></p>
+            <button id="overlay-btn">Continue</button>
+        </div>
+    </div>
+
+    <div id="grid"></div>
+
+    <div class="controls">
+        <button onclick="move('up')">⬆️</button>
+        <div>
+            <button onclick="move('left')">⬅️</button>
+            <button onclick="move('down')">⬇️</button>
+            <button onclick="move('right')">➡️</button>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="hint()">Hint (AI)</button>
+        <button onclick="showAIPlan()">Show AI Plan</button>
+        <button onclick="autoMove()">Auto Move</button>
+        <button onclick="resetGame()">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
