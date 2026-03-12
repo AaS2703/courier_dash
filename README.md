@@ -4,7 +4,9 @@ A browser-based puzzle game demonstrating AI-driven delivery route optimization 
 🚀 Project Overview
 Courier Dash simulates the challenges of modern urban logistics. The player (or the AI) must navigate a city grid to deliver packages while avoiding obstacles and blocked roads. The project serves as a visual playground for understanding how heuristic-based pathfinding operates in real-world scenarios like delivery services and autonomous navigation.
 
-🧠 AI Concepts ImplementedA Search Algorithm:* Finds the mathematically shortest path between the courier and the goal.Heuristic Evaluation: Uses the Manhattan Distance formula:$h(n) = |x1 - x2| + |y1 - y2|$Cost Function: Calculates movement priority based on:$f(n) = g(n) + h(n)$
+🧠 AI Concepts ImplementedA Search Algorithm:* Finds the mathematically shortest path between the courier and the goal.Heuristic Evaluation:
+Uses the Manhattan Distance formula: h(n) = |x1 - x2| + |y1 - y2|
+Cost Function: Calculates movement priority based on:f(n) = g(n) + h(n)
 
 🎮 Features
 Grid-Based Movement: Navigate a 2D city map with obstacles.
